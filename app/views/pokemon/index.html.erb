@@ -14,7 +14,7 @@
 
 
 <!-- Pokemon modal view (hidden at first) -->
-<div class="modal fade">
+<div class="modal fade js-pokemon-modal">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -24,18 +24,73 @@
         </button>
 
         <h3 class="modal-title">
-          <span>Feraligtr</span>
-          <small>#160</small>
+          <span class="js-pkmn-name">Feraligtr</span>
+          <small class="js-pkmn-number">#160</small>
+          <img id="pokemon-image">
+          <br>
+          <span class="js-pkmn-types"></span>
+          <button class="evol-show-evols">SHOW EVOLUTIONS</button>
         </h3>
+
       </div><!-- .modal-header -->
 
       <div class="modal-body">
         <dl class="dl-horizontal">
+          <dt>Description</dt>
+          <dd class="js-pkmn-description"></dd>
           <dt>Height</dt>
-          <dd>23</dd>
+          <dd class="js-pkmn-height">23</dd>
 
           <dt>Weight</dt>
-          <dd>888</dd>
+          <dd class="js-pkmn-weight">888</dd>
+
+          <dt>Hitpoints</dt>
+          <dd class="js-pkmn-hp">888</dd>
+
+          <dt>Attack</dt>
+          <dd class="js-pkmn-attack">23</dd>
+
+          <dt>Defense</dt>
+          <dd class="js-pkmn-defense">888</dd>
+
+          <dt>Special Attack</dt>
+          <dd class="js-pkmn-spatck">23</dd>
+
+          <dt>Special Defense</dt>
+          <dd class="js-pkmn-spdef">888</dd>
+
+          <dt>Speed</dt>
+          <dd class="js-pkmn-speed">23</dd>
+          
+        </dl>
+      </div><!-- .modal-body -->
+
+    </div><!-- .modal-content -->
+  </div><!-- .modal-dialog -->
+</div><!-- .modal -->
+
+
+<div class="modal fade evol-evolutions-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+
+        <h3 class="modal-title">
+          
+        </h3>
+
+      </div><!-- .modal-header -->
+
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+          <span class="evol-pkmn-name">Feraligtr</span>
+          <span class="evol-pkmn-image">
+            <img src="">
+          </span>
         </dl>
       </div><!-- .modal-body -->
 
