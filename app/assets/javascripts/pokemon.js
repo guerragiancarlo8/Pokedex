@@ -38,9 +38,13 @@ PokemonApp.PokemonEvolutions = function(resource_uri){
 		url: "http://pokeapi.co"+resource_uri,
 		success: function(response){
 
-			console.log(response)
+	
 
 			$(".evol-pkmn-name").text(response['name'])
+
+			//el enlace q nos va a llevar al pokemon original
+			$("#test").attr("data-evolution-uri",response['resource_uri'])
+			//console.log("this is response['resource_uri]"+response['resource_uri'])
 
 			//get the image for the evolution and set it in the evolution image src
 			PokemonApp.PokemonImage(response['sprites'][0]['resource_uri'],".evol-pkmn-image img")
@@ -53,13 +57,15 @@ PokemonApp.Pokemon.prototype.render = function(){
 
 	var self = this;
 
+
 	$.ajax({
 
 		url: "/api/pokemon/" + this.id,
 		success: function(response){
+
 			self.info = response;
 
-			console.log(self.info)
+
 			$(".js-pkmn-name").text(self.info.name);
 			$(".js-pkmn-number").text(self.info.pkdx_id);
 			$(".js-pkmn-height").text(self.info.height);
@@ -92,7 +98,7 @@ PokemonApp.Pokemon.prototype.render = function(){
 
 			$('.js-pokemon-modal').modal("show")
 
-
+			self = undefined
 		}
 	});
 };
@@ -109,11 +115,27 @@ $(document).on('ready',function(){
 	$(".evol-show-evols").on('click',function(event){
 
 		$('.evol-evolutions-modal').modal("show")
-
 	})
+
+	$("#test").on('click',function(event){
+
+		var $button = $(event.currentTarget)
+		console.log(event.currentTarget)
+		var uri = $button.attr("data-evolution-uri")
+
+		console.log(uri)
+
+		var newpok = new PokemonApp.Pokemon(uri)
+		console.log(newpok)
+		$('.evol-evolutions-modal').modal("hide")
+		newpok.render();
+		
+		//$('.js-pokemon-modal').modal("hide")
+	});
 
 	$(".js-show-pokemon").on('click',function(event){
 
+		
 		var $button = $(event.currentTarget);
 		var pokemonUri = $button.data("pokemon-uri")
 
