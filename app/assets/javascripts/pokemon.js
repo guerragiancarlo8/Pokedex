@@ -38,7 +38,7 @@ PokemonApp.PokemonEvolutions = function(resource_uri){
 		url: "http://pokeapi.co"+resource_uri,
 		success: function(response){
 
-	
+
 
 			$(".evol-pkmn-name").text(response['name'])
 
@@ -57,6 +57,8 @@ PokemonApp.Pokemon.prototype.render = function(){
 
 	var self = this;
 
+	$(".evol-pkmn-name").text("")
+	$(".evol-pkmn-image img").attr("src","")
 
 	$.ajax({
 
